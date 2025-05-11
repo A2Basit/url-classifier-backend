@@ -9,7 +9,7 @@ import gdown
 # Initialize Flask app
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
-file_id = "1ZBMiy0Mi92Q2VOVAiahqppSCDa2G6"
+file_id = "1ZBMiy0Mi92Q2VOVAiahqppSCDa2G6-qs"
 output = "model.ftz"
 
 # Download the model if not present
