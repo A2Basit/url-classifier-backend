@@ -11,13 +11,21 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 output = "fasttext_url_classifier_109k_version4_Dataset.ftz"
 
-try:
-    model = fasttext.load_model(output)
-    return jsonify({"Model loaded successfully"}), 200
+model = fasttext.load_model(output)
+
+if model:
+    return jsonify({"Model loaded successfully in the first block"}), 200
+elif not model:
+    eturn jsonify({"Model not loaded successfully in the first block of elif"}), 500
     
-except Exception as e:
-    print(f"Error loading model: {e}")
-    model = None
+# try:
+#     model = fasttext.load_model(output)
+#     return jsonify({"Model loaded successfully"}), 200
+    
+# except Exception as e:
+#     # print(f"Error loading model: {e}")
+#     return jasonify({"Model failed to load. This is the exception part"}), 500
+#     model = None
 
 # # Helper function to preprocess URLs
 # def preprocess_url(url):
