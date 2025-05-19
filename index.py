@@ -13,7 +13,7 @@ output = "fasttext_url_classifier_109k_version4_Dataset.ftz"
 
 try:
     model = fasttext.load_model(output)
-    print("Model loaded successfully")
+    return jsonify({"Model loaded successfully"}), 200
     
 except Exception as e:
     print(f"Error loading model: {e}")
